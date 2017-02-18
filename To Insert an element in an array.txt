@@ -1,0 +1,60 @@
+PROGRAM 3
+
+AIM-To Insert an element in an array
+
+ALGORITHM-
+Consider an linear array having N elements and we will insert an element
+ITEM at aparticular position POS in an array.
+Step 1:-[Initilize]Set k=1 & DATA[k]
+Step 2:-Insert the ITEM to inserted in an array and enter the position POS 
+Step 3:-IF POS>N then,
+        Print not possible
+Step 4:-Repeat step 5 & 6
+Step 5:-IF POS=DATA[k]
+        DATA[k]=ITEM
+        N++
+Step 6:-Set k=k+1 
+        [End of Step 4]
+
+Step 7:-Exit
+
+SOURCE CODE
+
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+ int a[100],n,i,pos,item,p,j;
+ clrscr();
+ printf("enter the size of array=");
+ scanf("%d",&n);
+ printf("\nenter the array\n");
+ for(i=0;i<n;i++)
+ {
+  scanf("%d",&a[i]);
+ }
+ printf("\nenter the item to be inserted=");
+ scanf("%d",&item);
+ printf("\nenter the position of insertion=");
+ scanf("%d",&pos);
+ if(pos>n)
+ {
+  printf("\ninsertion not possible\n");
+ }
+ else
+ {
+  n++;
+  for(j=n;j>=pos;j--)
+  {
+
+   a[j]=a[j-1];
+  }
+  a[pos]=item;
+ printf("\ninsertion done\n");
+ for(i=0;i<n;i++)
+ {
+  printf("%d\n",a[i]);
+ }
+}
+ getch();
+}

@@ -1,0 +1,48 @@
+PROGRAM 4
+
+AIM:-Enter an array then reverse it and them and store them in a third array then print it.
+
+Algorithm:-
+Consider a linear array having N elements.
+Step 1:-[Intialise]set k=1 and A[k]
+Step 2:-repeat step 3 & 4
+
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+ int a[100],b[100],c[100],n,i,sum,x=0;
+ clrscr();
+ printf("enter the size of array=");
+ scanf("%d",&n);
+ printf("\nenter the array\n");
+ for(i=0;i<n;i++)
+ {
+  scanf("%d",&a[i]);
+ }
+ printf("\narray inserted\n");
+ for(i=0;i<n;i++)
+ {
+  printf("%d\n",a[i]);
+ }
+ printf("\nreversed array\n");
+ for(i=0;i<n;i++)
+ {
+  b[n-i-1]=a[i];
+ }
+ for(i=0;i<n;i++)
+ {
+  printf("%d\n",b[i]);
+ }
+ printf("\naddition of arrays\n");
+ for(i=0;i<n;i++)
+ {
+  c[i]=a[i]+b[i];
+ }
+ printf("\nsum of arrays\n");
+ for(i=0;i<n;i++)
+ {
+  printf("%d\n",c[i]);
+ }
+ getch();
+}

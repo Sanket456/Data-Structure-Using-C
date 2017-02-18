@@ -1,0 +1,54 @@
+PROGRAM 2
+
+AIM:-To delete an element from a particular position in an array.
+
+ALGORITHM-
+Consider a linear array having N elements and we will enter the position, POS
+where we have to delete an element.
+Step 1:-[Initialise] set k=1 and DATA[1]
+Step 2:-Enter the position POS data to be deleted
+Step 3:-repeate 4 & 5
+Step 4:-IF POS=DATA[k]
+        delete DATA[k]
+        --N
+Step 5:-Set k=k+1
+        [End of step 3]
+Step 6:-Exit
+
+SOURCE CODE
+
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+ int a[100],i,n,pos;
+ clrscr();
+ printf("enter the size of arrays=");
+ scanf("%d",&n);
+ printf("\nenter the array\n");
+ for(i=0;i<n;i++)
+ {
+  scanf("%d",&a[i]);
+ }
+ printf("\nenter the position where the item need to be deleted=");
+ scanf("%d",&pos);
+ if(pos>n)
+ {
+  printf("\nnot possible\n");
+ }
+ else
+ {
+  pos--;
+  for(i=pos;i<n;i++)
+  {
+   a[i]=a[i+1];
+  }
+  n--;
+  printf("\nitem deleted\n");
+  for(i=0;i<n;i++)
+  {
+   printf("%d\n",a[i]);
+  }
+ }
+ getch();
+}

@@ -1,0 +1,43 @@
+PROGRAM 1:LINEAR SEARCH
+
+AIM:-To Search an element in an array.
+
+ALGORITHM:-
+Consider an linear array having N elements and DATA is stored in it.ITEM is searched in an array
+one by one or linearly.
+Step 1:-Set k=1 and DATA[1]
+Step 2:-Enter the item to be searched ITEM
+Step 3:-repeat step 4 & 5 
+Step 4:-IF ITEM=DATA[k] then,
+        print ITEM
+Step 5:-k=k+1
+       [End of step 3]
+Step 6:-Exit
+
+SOURCE CODE
+ 
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+ int a[100],i,x,item,n;
+ clrscr();
+ printf("enter the size of array=");
+ scanf("%d",&n);
+ printf("\nenter the array=");
+ for(i=0;i<n;i++)
+ {
+  scanf("%d",&a[i]);
+ }
+ printf("\nenter the item to be searched=");
+ scanf("%d",&item);
+ for(i=0;i<n;i++)
+ {
+  if(a[i]==item)
+  {
+   printf("\nsearch successful\n");
+   break;
+  }
+ }
+ getch();
+}
