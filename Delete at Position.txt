@@ -1,0 +1,89 @@
+//Delete Node at a particular Position
+
+#include<stdio.h>
+struct node
+{
+ int info;
+ struct node *next;
+}*start=NULL;
+
+void create()
+{
+ char ch;
+ do
+ {
+  struct node *new_node,*current;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  printf("Enter the Data into Node\n");
+  scanf("%d",&new_node->info);
+  new_node->next=NULL;
+  if(start==NULL)
+  {
+   start=new_node;
+   current=new_node;
+  }
+  else
+  {
+   current->next=new_node;
+   current=new_node;
+  }
+  printf("Do you want to make more entry\n");
+  ch=getche();
+ }while(ch!='n');
+}
+
+void delete_pos()
+{
+ struct node *new_node,*temp;
+ int pos,i;
+ printf("The position at which node has to be deleted\n");
+ scanf("%d",&pos);
+ if(start==NULL)
+ {
+  printf("The Linked list is empty\n");
+  return;
+ }
+ else
+ {
+  new_node=start;
+  for(i=1;i<pos-1;i++)
+  {
+   if(new_node->next==NULL)
+   {
+    printf("it has less no of nodes");
+    return;
+   }
+   new_node=new_node->next;
+  }
+  temp=new_node->next;
+  new_node->next=temp->next;
+  printf("The Deleted Node is %d\n",temp->info);
+  free(temp);
+ }
+
+}
+void display()
+{
+ struct node *new_node;
+ new_node=start;
+ if(start==NULL)
+ {
+  printf("Empty");
+  return;
+ }
+ else
+ {
+  while(new_node!=NULL)
+  {
+   printf("%d---->",new_node->info);
+   new_node=new_node->next;
+  }
+ }
+}
+
+void main()
+{
+ create();
+ delete_pos();
+ display();
+}

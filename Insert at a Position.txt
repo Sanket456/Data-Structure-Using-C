@@ -1,0 +1,81 @@
+//insert node at position
+
+#include<stdio.h>
+struct node
+{
+ int data;
+ struct node *next;
+}*start=NULL;
+
+void create()
+{
+ char ch;
+ do
+ {
+  struct node *new_node,*current;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  printf("Make the entry in the Linked List\n");
+  scanf("%d",&new_node->data);
+  new_node->next=NULL;
+  if(start==NULL)
+  {
+   start=new_node;
+   current=new_node;
+  }
+  else
+  {
+   current->next=new_node;
+   current=new_node;
+  }
+  printf("Make another entry:\n");
+  ch=getche();
+ }while(ch!='n');
+}
+
+void insert_pos()
+{
+ int pos,i;
+ struct node *temp,*new_node;
+ temp=(struct node *)malloc(sizeof(struct node));
+ printf("Enter the node to be inserted\n");
+ scanf("%d",&temp->data);
+ printf("Enter the position to insert the position\n");
+ scanf("%d",&pos);
+ new_node=start;
+ for(i=1;i<pos-1;i++)
+ {
+  if(new_node->next==NULL)
+  {
+   printf("it has less elements");
+   return;
+  }
+  new_node=new_node->next;
+ }
+ temp->next=new_node->next;
+ new_node->next=temp;
+ return 0;
+}
+void display()
+{
+ struct node *new_node;
+ new_node=start;
+ while(new_node!=NULL)
+ {
+  if(start==NULL)
+  {
+   printf("\nNULL");
+   return;
+  }
+  else
+  {
+   printf("%d---->",new_node->data);
+   new_node=new_node->next;
+  }
+ }
+}
+void main()
+{
+ create();
+ insert_pos();
+ display();
+}

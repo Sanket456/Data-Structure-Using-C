@@ -1,0 +1,75 @@
+//Delete Node at Beginning
+
+#include<stdio.h>
+struct node
+{
+ int info;
+ struct node *next;
+}*start=NULL;
+
+void create()
+{
+ char ch;
+ do
+ {
+  struct node *new_node,*current;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  printf("Enter the Data into Node\n");
+  scanf("%d",&new_node->info);
+  new_node->next=NULL;
+  if(start==NULL)
+  {
+   start=new_node;
+   current=new_node;
+  }
+  else
+  {
+   current->next=new_node;
+   current=new_node;
+  }
+  printf("Do you want to make more entry\n");
+  ch=getche();
+ }while(ch!='n');
+}
+
+void delete_beg()
+{
+ struct node *new_node;
+ if(start==NULL)
+ {
+  printf("Linked List Empty");
+  return;
+ }
+ else
+ {
+  new_node=start;
+  start=start->next;
+  printf("\nDeleted item: %d\n",new_node->info);
+  free(new_node);
+ }
+}
+
+void display()
+{
+ struct node *new_node;
+ new_node=start;
+ if(start==NULL)
+ {
+  printf("Empty");
+  return;
+ }
+ else
+ {
+  while(new_node!=NULL)
+  {
+   printf("%d---->",new_node->info);
+   new_node=new_node->next;
+  }
+ }
+}
+void main()
+{
+ create();
+ delete_beg();
+ display();
+}

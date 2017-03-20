@@ -1,0 +1,68 @@
+//Insert Node at beginnng
+
+#include<stdio.h>
+struct node
+{
+ int info;
+ struct node *next;
+}*start=NULL;
+
+void insert()
+{
+ char ch;
+ do
+ {
+  struct node *new_node,*current;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  printf("Enter the Data to be entered\n");
+  scanf("%d",&new_node->info);
+  new_node->next=NULL;
+  if(start==NULL)
+  {
+   start=new_node;
+   current=new_node;
+  }
+  else
+  {
+   current->next=new_node;
+   current=new_node;
+  }
+  printf("DO you want to make an entry-\n");
+  ch=getche();
+ }while(ch!='n');
+}
+
+void display()
+{
+ struct node *new_node;
+ new_node=start;
+ while(new_node!=NULL)
+ {
+  printf("\n%d--->",new_node->info);
+  new_node=new_node->next;
+ }
+}
+
+void insert_beg()
+{
+  struct node *new_node,*current;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  printf("Enter the Data to be entered\n");
+  scanf("%d",&new_node->info);
+  new_node->next=NULL;
+  if(new_node==NULL)
+  {
+   printf("Empty");
+  }
+  else
+  {
+   new_node->next=start;
+   start=new_node;
+  }
+}
+void main()
+{
+ insert();
+ insert_beg();
+ display();
+}

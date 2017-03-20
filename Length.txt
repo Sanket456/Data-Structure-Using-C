@@ -1,0 +1,51 @@
+//Program to Count the No of nodes in Linked list
+
+#include<stdio.h>
+struct node
+{
+ int info;
+ struct node *next;
+}*start=NULL;
+
+void create()
+{
+ char ch;
+ do
+ {
+  struct node *new_node,*current;
+  new_node=(struct node *)malloc(sizeof(struct node));
+  printf("Enter the node:");
+  scanf("%d",&new_node->info);
+  new_node->next=NULL;
+  if(start==NULL)
+  {
+  start=new_node;
+  current=new_node;
+  }
+  else
+  {
+  current->next=new_node;
+  current=new_node;
+  }
+  printf("Do you want to make another entry:\n");
+  ch=getche();
+ }while(ch!='n');
+}
+ void count()
+ {
+  struct node *new_node;
+  int len=0;
+  new_node=start;
+  while(new_node!=NULL)
+  {
+   len++;
+   new_node=new_node->next;
+  }
+  printf("\nLength=%d",len);
+ }
+void main()
+{
+ create();
+ count();
+}
+
