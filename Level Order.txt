@@ -1,0 +1,66 @@
+#include<stdio.h>
+struct node
+{
+ int data;
+ struct node *left;
+ struct node *right;
+};
+
+void printGivenlevel(struct node *node, int level);
+int height(struct node *node);
+struct node *newNode(int data);
+
+void printlevelorder(struct node *node)
+{
+ int h=height(node);
+ int i;
+ for(i=1;i<=h;i++)
+  printGivenlevel(node,i);
+}
+
+void printGivenlevel(struct node *node,int level)
+{
+ if(node==NULL)
+  return;
+ if(level==1)
+ printf("%d",node->data);
+ if(level>1)
+ {
+  printGivenlevel(node->left,level-1);
+  printGivenlevel(node->right,level-1);
+ }
+}
+int height(struct node *node)
+{
+ if(node==NULL)
+  return;
+ else
+ {
+  int lheight=height(node->left);
+  int rheight=height(node->right);
+
+  if(lheight>rheight)
+   return(lheight+1);
+  else return(rheight+1);
+ }
+}
+ struct node *newNode(int data)
+ {
+  struct node *node=(struct node*)malloc(sizeof(struct node));
+  node->data=data;
+  node->left=NULL;
+  node->right=NULL;
+  return(node);
+ };
+
+int main()
+{
+ struct node *node=newNode(1);
+ node->right=newNode(2);
+ node->left=newNode(3);
+ node->left->right=newNode(5);
+ node->left->left=newNode(6);
+ printf("\nLevel Order Traversal:");
+ printlevelorder(node);
+ return 0;
+}
